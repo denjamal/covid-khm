@@ -1,0 +1,16 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.StandardContentPage>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+<!-- Header -->
+@Html.Partial("Navigation", Model);
+<!-- Main -->
+<section id="main" class="wrapper">
+	<div class="container">
+        <div>
+            @Model.RTecontent
+        </div>
+    </div>
+</section>

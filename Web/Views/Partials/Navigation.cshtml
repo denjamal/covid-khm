@@ -1,0 +1,23 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+    var root = Model.AncestorOrSelf(1) as IPage;
+}
+
+<header id="header">
+    <h3><strong><a href="/">Covid-19</a></strong> Хмельницький</h3>
+    <nav id="nav">
+        <ul>
+            <li>
+                <a href="@root.Url">@root.Title</a>
+            </li>
+            @foreach (IPage page in root.Children())
+            {
+                <li>
+                    <a href="@page.Url">@page.Title</a>
+                </li>
+            }
+        </ul>
+    </nav>
+</header>
+
+<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
