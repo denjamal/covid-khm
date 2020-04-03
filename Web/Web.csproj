@@ -305,7 +305,11 @@
     <Compile Include="App_Data\Models\Image.generated.cs" />
     <Compile Include="App_Data\Models\Member.generated.cs" />
     <Compile Include="App_Data\Models\Page.generated.cs" />
+    <Compile Include="App_Data\Models\People.generated.cs" />
+    <Compile Include="App_Data\Models\Person.generated.cs" />
     <Compile Include="App_Data\Models\StandardContentPage.generated.cs" />
+    <Compile Include="App_Data\Models\Supplier.generated.cs" />
+    <Compile Include="Controllers\PersonApiController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
