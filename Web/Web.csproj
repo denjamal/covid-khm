@@ -6,8 +6,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>
-    </ProductVersion>
+    <ProductVersion></ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{AE6B498C-3829-4533-B2B1-EBAFE7483AA1}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -18,14 +17,12 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>
-    </IISExpressSSLPort>
+    <IISExpressSSLPort></IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <NuGetPackageImportStamp></NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -324,7 +321,14 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Data\Models\Benefactor.generated.cs" />
+    <Compile Include="App_Data\Models\ExtraDoctorDTO.cs" />
+    <Compile Include="App_Data\Models\VolunteerDTO.cs" />
+    <Compile Include="App_Data\Models\SupplierDTO.cs" />
     <Compile Include="App_Data\Models\ContactPage.generated.cs" />
+    <Compile Include="App_Data\Models\BenefactorDTO.cs" />
+    <Compile Include="App_Data\Models\RegisteredPeople.generated.cs" />
+    <Compile Include="App_Data\Models\ExtraDoctor.generated.cs" />
     <Compile Include="App_Data\Models\File.generated.cs" />
     <Compile Include="App_Data\Models\Folder.generated.cs" />
     <Compile Include="App_Data\Models\Image.generated.cs" />
@@ -332,11 +336,14 @@
     <Compile Include="App_Data\Models\Page.generated.cs" />
     <Compile Include="App_Data\Models\People.generated.cs" />
     <Compile Include="App_Data\Models\Person.generated.cs" />
+    <Compile Include="App_Data\Models\SignUpPage.generated.cs" />
     <Compile Include="App_Data\Models\StandardContentPage.generated.cs" />
     <Compile Include="App_Data\Models\Supplier.generated.cs" />
     <Compile Include="Controllers\ContactApiController.cs" />
     <Compile Include="Controllers\PersonApiController.cs" />
     <Compile Include="Models\ContactDTO.cs" />
+    <Compile Include="App_Data\Models\Volunteer.generated.cs" />
+    <Compile Include="Controllers\SignUpController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\EmailService.cs" />
   </ItemGroup>
@@ -374,6 +381,8 @@
     <Content Include="Views\Partials\SEO.cshtml" />
     <Content Include="Views\Partials\Navigation.cshtml" />
     <Content Include="Views\Contacts.cshtml" />
+    <Content Include="Views\registrationPage.cshtml" />
+    <Content Include="Views\SignUpPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -381,7 +390,10 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Default\" />
+    <Folder Include="Views\Registration\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -400,8 +412,7 @@
           <IISUrl>http://localhost:60578/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl></CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

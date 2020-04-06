@@ -19,64 +19,43 @@ using Umbraco.ModelsBuilder.Embedded;
 
 namespace Umbraco.Web.PublishedModels
 {
-	/// <summary>Supplier</summary>
-	[PublishedModel("supplier")]
-	public partial class Supplier : PublishedContentModel, IPerson
+	/// <summary>SignUpPage</summary>
+	[PublishedModel("signUpPage")]
+	public partial class SignUpPage : PublishedContentModel, IPage
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		public new const string ModelTypeAlias = "supplier";
+		public new const string ModelTypeAlias = "signUpPage";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Supplier, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<SignUpPage, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public Supplier(IPublishedContent content)
+		public SignUpPage(IPublishedContent content)
 			: base(content)
 		{ }
 
 		// properties
 
 		///<summary>
-		/// Description
+		/// RichTextEdidor
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		[ImplementPropertyType("description")]
-		public string Description => this.Value<string>("description");
+		[ImplementPropertyType("richTextEdidor")]
+		public global::System.Web.IHtmlString RichTextEdidor => this.Value<global::System.Web.IHtmlString>("richTextEdidor");
 
 		///<summary>
-		/// Email
+		/// Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		[ImplementPropertyType("email")]
-		public string Email => this.Value<string>("email");
-
-		///<summary>
-		/// Name
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		[ImplementPropertyType("personeName")]
-		public string PersoneName => global::Umbraco.Web.PublishedModels.Person.GetPersoneName(this);
-
-		///<summary>
-		/// Phone
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		[ImplementPropertyType("phone")]
-		public string Phone => global::Umbraco.Web.PublishedModels.Person.GetPhone(this);
-
-		///<summary>
-		/// Type
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		[ImplementPropertyType("type")]
-		public string Type => global::Umbraco.Web.PublishedModels.Person.GetType(this);
+		[ImplementPropertyType("title")]
+		public string Title => global::Umbraco.Web.PublishedModels.Page.GetTitle(this);
 	}
 }
