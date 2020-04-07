@@ -324,7 +324,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Data\Models\AboutUs.generated.cs" />
     <Compile Include="App_Data\Models\Benefactor.generated.cs" />
     <Compile Include="Models\ExtraDoctorDTO.cs" />
     <Compile Include="Models\VolunteerDTO.cs" />
