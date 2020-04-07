@@ -8,30 +8,15 @@ namespace Web.Controllers
 {
     public class ContactApiController : UmbracoApiController
     {
-        string _emailForNotification = "";
-        string _smtpServer = "";
-        int _smtpPort = 0;
-        string _smtpLogin = "";
-        string _smtpPassword = "";
-
-        public ContactApiController()
-        {
-            _emailForNotification = System.Configuration.ConfigurationManager.AppSettings["emailForNotification"];
-            _smtpServer = System.Configuration.ConfigurationManager.AppSettings["smtpServer"];
-            _smtpPort = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["smtpPort"]);
-            _smtpLogin = System.Configuration.ConfigurationManager.AppSettings["smtpLogin"];
-            _smtpPassword = System.Configuration.ConfigurationManager.AppSettings["smtpPassword"];
-        }
-
         [HttpPost]
         public async Task<IHttpActionResult> CreateContactRequest(Models.ContactDTO contact)
         {
             try
             {
-                using (EmailService emailSerrvice = new EmailService(_emailForNotification, _smtpServer, _smtpPort, _smtpLogin, _smtpPassword))
+                using (var emailService = GetEmailService())
                 {
-                    emailSerrvice.Init();
-                    await emailSerrvice.SendEmailAsync(contact);
+                    emailService.Init();
+                    await emailService.SendEmailAsync(contact);
                 }
 
             }
@@ -40,6 +25,18 @@ namespace Web.Controllers
                 return InternalServerError(ex);
             }
             return Ok();
+        }
+
+        private static EmailService GetEmailService()
+        {
+            var emailForNotification = System.Configuration.ConfigurationManager.AppSettings["emailForNotification"];
+            var smtpServer = System.Configuration.ConfigurationManager.AppSettings["smtpServer"];
+            var smtpPort = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["smtpPort"]);
+            var smtpLogin = System.Configuration.ConfigurationManager.AppSettings["smtpLogin"];
+            var smtpPassword = System.Configuration.ConfigurationManager.AppSettings["smtpPassword"];
+            var emailService = new EmailService(emailForNotification, smtpServer, smtpPort, smtpLogin, smtpPassword);
+            emailService.Init();
+            return emailService;
         }
     }
 }
