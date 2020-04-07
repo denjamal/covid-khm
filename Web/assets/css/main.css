@@ -2930,11 +2930,11 @@
 	.navPanelToggle {
 		text-decoration: none;
 		text-decoration: none;
-		height: 100%;
+		height: 3.25em;
 		left: 0;
 		position: absolute;
 		top: 0;
-		width: 100%;
+		width: 4.5em;
 		display: none;
 	}
 
