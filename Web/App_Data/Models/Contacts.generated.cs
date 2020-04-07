@@ -19,37 +19,37 @@ using Umbraco.ModelsBuilder.Embedded;
 
 namespace Umbraco.Web.PublishedModels
 {
-	/// <summary>Supplier</summary>
-	[PublishedModel("supplier")]
-	public partial class Supplier : PublishedContentModel, IPerson
+	/// <summary>Contacts</summary>
+	[PublishedModel("contacts")]
+	public partial class Contacts : PublishedContentModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		public new const string ModelTypeAlias = "supplier";
+		public new const string ModelTypeAlias = "contacts";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Supplier, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Contacts, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public Supplier(IPublishedContent content)
+		public Contacts(IPublishedContent content)
 			: base(content)
 		{ }
 
 		// properties
 
 		///<summary>
-		/// Description
+		/// ContactName
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		[ImplementPropertyType("description")]
-		public string Description => this.Value<string>("description");
+		[ImplementPropertyType("ContactName")]
+		public string ContactName => this.Value<string>("ContactName");
 
 		///<summary>
 		/// Email
@@ -59,24 +59,10 @@ namespace Umbraco.Web.PublishedModels
 		public string Email => this.Value<string>("email");
 
 		///<summary>
-		/// Name
+		/// Message
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		[ImplementPropertyType("personName")]
-		public string PersonName => global::Umbraco.Web.PublishedModels.Person.GetPersonName(this);
-
-		///<summary>
-		/// Phone
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		[ImplementPropertyType("phone")]
-		public string Phone => global::Umbraco.Web.PublishedModels.Person.GetPhone(this);
-
-		///<summary>
-		/// Type
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		[ImplementPropertyType("type")]
-		public string Type => global::Umbraco.Web.PublishedModels.Person.GetType(this);
+		[ImplementPropertyType("message")]
+		public string Message => this.Value<string>("message");
 	}
 }

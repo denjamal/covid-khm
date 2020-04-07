@@ -1,0 +1,98 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.SignUpPage>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "Master.cshtml";
+}
+
+
+<!-- Header -->
+@Html.Partial("Navigation", Model)
+
+<!-- Main -->
+<section id="main" class="wrapper">
+    <div id="form-main">
+        <div id="form-div">
+            <form class="form" action="" method="post" id="form1">
+
+                <p>
+                    <select id="type" class="button special" onChange="TypeChange()">
+                        <option value="type_0"></option>
+                        <option value="type_1">Extra doctor</option>
+                        <option value="type_2">Volunteer</option>
+                        <option value="type_3">Suplier</option>
+                        <option value="type_4">Benefactor</option>
+                    </select>
+                </p>
+
+                <p id="name">
+                    <input name="PersonName" type="text" class="feedback-input" placeholder="Name" />
+                </p>
+
+                <p id="phone">
+                    <input name="Phone" type="text" class="feedback-input" placeholder="Phone number" />
+                </p>
+
+                <p id="email">
+                    <input name="Email" type="text" class="feedback-input" placeholder="Email" />
+                </p>
+
+                <p id="age">
+                    <input name="Age" type="text" class="feedback-input" placeholder="Your age" />
+                </p>
+
+                <p id="address">
+                    <input name="HomeAddress" type="text" class="feedback-input" placeholder="Home address" />
+                </p>
+
+                <p id="description">
+                    <textarea id="description" name="Description" class="feedback-input" placeholder="Description"></textarea>
+                </p>
+
+
+                <div class="submit">
+                    <input type="submit" value="SEND" id="button-blue" />
+                    <div class="ease"></div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>
+<script>
+    function TypeChange() {
+        if (document.getElementById('type').value == "type_2") {
+            document.getElementById('form1').action = "/umbraco/api/signup/createVolunteer";
+            document.getElementById('email').style.display = "none";
+            document.getElementById('address').style.display = "block";
+            document.getElementById('age').style.display = "block";
+            document.getElementById('description').placeHolder = "Description";
+        }
+        else if (document.getElementById('type').value == "type_3") {
+            document.getElementById('form1').action = "/umbraco/api/signup/createSupplier";
+            document.getElementById('email').style.display = "block";
+            document.getElementById('address').style.display = "none";
+            document.getElementById('age').style.display = "none";
+            document.getElementById('description').placeHolder = "Description";
+        }
+        else if (document.getElementById('type').value == "type_4") {
+            document.getElementById('form1').action = "/umbraco/api/signup/createBenefactor";
+            document.getElementById('email').style.display = "block";
+            document.getElementById('address').style.display = "none";
+            document.getElementById('age').style.display = "none";
+            document.getElementById('description').placeHolder = "Description";
+        }
+        else if (document.getElementById('type').value == "type_1") {
+            document.getElementById('form1').action = "/umbraco/api/signup/CreateExtraDoctor";
+            document.getElementById('email').style.display = "none";
+            document.getElementById('address').style.display = "block";
+            document.getElementById('age').style.display = "block";
+            document.getElementById('description').placeHolder = "Medical specialization";
+        }
+        else if (document.getElementById('type').value == "type_0") {
+            document.getElementById('email').style.display = "block";
+            document.getElementById('address').style.display = "block";
+            document.getElementById('age').style.display = "block";
+            document.getElementById('description').placeHolder = "Description";
+        }
+    }
+</script>

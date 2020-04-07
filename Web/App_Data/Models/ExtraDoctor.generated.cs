@@ -19,44 +19,51 @@ using Umbraco.ModelsBuilder.Embedded;
 
 namespace Umbraco.Web.PublishedModels
 {
-	/// <summary>Supplier</summary>
-	[PublishedModel("supplier")]
-	public partial class Supplier : PublishedContentModel, IPerson
+	/// <summary>ExtraDoctor</summary>
+	[PublishedModel("extraDoctor")]
+	public partial class ExtraDoctor : PublishedContentModel, IPerson
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		public new const string ModelTypeAlias = "supplier";
+		public new const string ModelTypeAlias = "extraDoctor";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Supplier, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<ExtraDoctor, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public Supplier(IPublishedContent content)
+		public ExtraDoctor(IPublishedContent content)
 			: base(content)
 		{ }
 
 		// properties
 
 		///<summary>
-		/// Description
+		/// Address
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		[ImplementPropertyType("description")]
-		public string Description => this.Value<string>("description");
+		[ImplementPropertyType("address")]
+		public string Address => this.Value<string>("address");
 
 		///<summary>
-		/// Email
+		/// Age
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		[ImplementPropertyType("email")]
-		public string Email => this.Value<string>("email");
+		[ImplementPropertyType("age")]
+		public int Age => this.Value<int>("age");
+
+		///<summary>
+		/// Medical Specialization
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
+		[ImplementPropertyType("medicalSpecialization")]
+		public string MedicalSpecialization => this.Value<string>("medicalSpecialization");
 
 		///<summary>
 		/// Name

@@ -23,17 +23,17 @@ namespace Umbraco.Web.PublishedModels
 	/// <summary>Person</summary>
 	public partial interface IPerson : IPublishedContent
 	{
-		/// <summary>Message</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		string Message { get; }
-
 		/// <summary>Name</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		string PersoneName { get; }
+		string PersonName { get; }
 
 		/// <summary>Phone</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
 		string Phone { get; }
+
+		/// <summary>Type</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
+		string Type { get; }
 	}
 
 	/// <summary>Person</summary>
@@ -62,26 +62,15 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
-		/// Message
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		[ImplementPropertyType("message")]
-		public string Message => GetMessage(this);
-
-		/// <summary>Static getter for Message</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		public static string GetMessage(IPerson that) => that.Value<string>("message");
-
-		///<summary>
 		/// Name
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		[ImplementPropertyType("personeName")]
-		public string PersoneName => GetPersoneName(this);
+		[ImplementPropertyType("personName")]
+		public string PersonName => GetPersonName(this);
 
 		/// <summary>Static getter for Name</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		public static string GetPersoneName(IPerson that) => that.Value<string>("personeName");
+		public static string GetPersonName(IPerson that) => that.Value<string>("personName");
 
 		///<summary>
 		/// Phone
@@ -93,5 +82,16 @@ namespace Umbraco.Web.PublishedModels
 		/// <summary>Static getter for Phone</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
 		public static string GetPhone(IPerson that) => that.Value<string>("phone");
+
+		///<summary>
+		/// Type
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
+		[ImplementPropertyType("type")]
+		public string Type => GetType(this);
+
+		/// <summary>Static getter for Type</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
+		public static string GetType(IPerson that) => that.Value<string>("type");
 	}
 }
