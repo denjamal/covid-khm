@@ -62,8 +62,8 @@ namespace Umbraco.Web.PublishedModels
 		/// Name
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		[ImplementPropertyType("personeName")]
-		public string PersoneName => global::Umbraco.Web.PublishedModels.Person.GetPersoneName(this);
+		[ImplementPropertyType("personName")]
+		public string PersonName => global::Umbraco.Web.PublishedModels.Person.GetPersonName(this);
 
 		///<summary>
 		/// Phone

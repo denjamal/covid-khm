@@ -25,7 +25,7 @@ namespace Umbraco.Web.PublishedModels
 	{
 		/// <summary>Name</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		string PersoneName { get; }
+		string PersonName { get; }
 
 		/// <summary>Phone</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
@@ -65,12 +65,12 @@ namespace Umbraco.Web.PublishedModels
 		/// Name
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		[ImplementPropertyType("personeName")]
-		public string PersoneName => GetPersoneName(this);
+		[ImplementPropertyType("personName")]
+		public string PersonName => GetPersonName(this);
 
 		/// <summary>Static getter for Name</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
-		public static string GetPersoneName(IPerson that) => that.Value<string>("personeName");
+		public static string GetPersonName(IPerson that) => that.Value<string>("personName");
 
 		///<summary>
 		/// Phone
