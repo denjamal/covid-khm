@@ -6,7 +6,7 @@ using Web.Services;
 
 namespace Web.Controllers
 {
-    public class ContactApiController : UmbracoApiController
+    public class ContactController : UmbracoApiController
     {
         [HttpPost]
         public async Task<IHttpActionResult> CreateContactRequest(Models.ContactDTO contact)
@@ -15,7 +15,6 @@ namespace Web.Controllers
             {
                 using (var emailService = GetEmailService())
                 {
-                    emailService.Init();
                     await emailService.SendEmailAsync(contact);
                 }
 

@@ -39,7 +39,7 @@ namespace Web.Services
             _smtpClient = new SmtpClient(_smtpServer, _smtpPort)
             {
                 UseDefaultCredentials = false,
-                EnableSsl = true,
+                EnableSsl = false,
                 Credentials = new NetworkCredential(_smtpLogin, _smtpPassword)
             };
         }
