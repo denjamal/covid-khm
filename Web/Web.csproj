@@ -341,7 +341,7 @@
     <Compile Include="App_Data\Models\SignUpPage.generated.cs" />
     <Compile Include="App_Data\Models\StandardContentPage.generated.cs" />
     <Compile Include="App_Data\Models\Supplier.generated.cs" />
-    <Compile Include="Controllers\ContactApiController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Models\ContactDTO.cs" />
     <Compile Include="App_Data\Models\Volunteer.generated.cs" />
     <Compile Include="Controllers\SignUpController.cs" />

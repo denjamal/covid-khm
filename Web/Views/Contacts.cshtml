@@ -38,9 +38,8 @@
     </section>
 </section>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-<script>
+@section ChildScripts {
+    <script>
         $("#contactForm").on("submit", function (event) {
             var contactName = $('#name').val();
             if (contactName == '') {
@@ -57,14 +56,16 @@
                 alert("Поле з повідомленням не може бути порожнім!");
                 return false;
             }
-            var jqxhr = $.post("/umbraco/api/ContactApi/CreateContactRequest", { "ContactEmail": contactEmail, "ContactMessage": contactMessage, "ContactName": contactName})
-                    .done(function() {
-                        alert( "Контактна форма відправлена!" );
-                    })
-                    .fail(function(ex) {
-                        alert("Помилка під час надсилання форми, спробуйте пізніше, або зверніться за контактним телефоном!");
-                        console.log(ex);
-                    });
+            $.post("/umbraco/api/Contact/CreateContactRequest", { "ContactEmail": contactEmail, "ContactMessage": contactMessage, "ContactName": contactName })
+                .done(function () {
+                    alert("Контактна форма відправлена!");
+                })
+                .fail(function (ex) {
+                    alert("Помилка під час надсилання форми, спробуйте пізніше, або зверніться за контактним телефоном!");
+                    console.log(ex);
+                });
             event.preventDefault();
         });
-</script>
+    </script>
+}
+
