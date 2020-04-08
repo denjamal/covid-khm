@@ -19,7 +19,6 @@ jQuery(document).ready(function () {
 
 let __url;
 
-
 function TypeChange() {
     if (document.getElementById('type').value == "type_2") {
         // document.getElementById('form1').action = "/umbraco/api/signup/createVolunteer";
