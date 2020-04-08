@@ -47,7 +47,7 @@ namespace Web.Services
         public Task SendEmailAsync(Models.ContactDTO contact)
         {
             var subject = "Message from " + contact.ContactName;
-            var msg = $"From: name: {contact.ContactName} \n category: {contact.ContactCategory} \n email: {contact.ContactEmail} \n message: {contact.ContactMessage}";
+            var msg = $"From: name: {contact.ContactName} \n email: {contact.ContactEmail} \n message: {contact.ContactMessage}";
             var message = new MailMessage(_smtpLogin, _emailForNotification, subject, msg);
             return _smtpClient.SendMailAsync(message);
         }
