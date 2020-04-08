@@ -7,92 +7,76 @@
 
 <!-- Header -->
 @Html.Partial("Navigation", Model)
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 <!-- Main -->
+@Model.RichTextEdidor
 <section id="main" class="wrapper">
     <div id="form-main">
         <div id="form-div">
-            <form class="form" action="" method="post" id="form1">
+            <form class="form" action="" method="post" id="form" name="form">
 
                 <p>
-                    <select id="type" class="button special" onChange="TypeChange()">
-                        <option value="type_0"></option>
-                        <option value="type_1">Extra doctor</option>
-                        <option value="type_2">Volunteer</option>
-                        <option value="type_3">Suplier</option>
-                        <option value="type_4">Benefactor</option>
+                    <select class="category" id="type" onChange="TypeChange()">
+                        <option value="type_0">--Ким ви бажаєте стати--</option>
+                        <option value="type_1">Лікар резерву</option>
+                        <option value="type_2">Волонтер</option>
+                        <option value="type_3">Постачальник</option>
+                        <option value="type_4">Благодійник</option>
                     </select>
                 </p>
 
                 <p id="name">
-                    <input name="PersonName" type="text" class="feedback-input" placeholder="Name" />
+                    <input name="PersonName" type="text" class="feedback-input" placeholder="Прізвище Ім'я Побатькові" />
                 </p>
 
                 <p id="phone">
-                    <input name="Phone" type="text" class="feedback-input" placeholder="Phone number" />
+                    <input name="Phone" type="text" class="feedback-input" placeholder="Номер телефону" />
                 </p>
 
                 <p id="email">
-                    <input name="Email" type="text" class="feedback-input" placeholder="Email" />
+                    <input name="Email" type="text" class="feedback-input" placeholder="Ваш Email" />
                 </p>
 
                 <p id="age">
-                    <input name="Age" type="text" class="feedback-input" placeholder="Your age" />
+                    <input name="Age" type="text" class="feedback-input" placeholder="Ваш вік" />
                 </p>
 
                 <p id="address">
-                    <input name="HomeAddress" type="text" class="feedback-input" placeholder="Home address" />
+                    <input name="HomeAddress" type="text" class="feedback-input" placeholder="Домашня адреса" />
                 </p>
 
                 <p id="description">
-                    <textarea id="description" name="Description" class="feedback-input" placeholder="Description"></textarea>
+                    <textarea id="description" name="Description" class="feedback-input" placeholder="Чим ви готові займатись"></textarea>
                 </p>
 
-
-                <div class="submit">
-                    <input type="submit" value="SEND" id="button-blue" />
-                    <div class="ease"></div>
-                </div>
+                <button class="form-button" data-toggle="modal" data-target="#exampleModal"><span class="text-button">Відправити заявку</span></button>
 
             </form>
         </div>
     </div>
 </section>
-<script>
-    function TypeChange() {
-        if (document.getElementById('type').value == "type_2") {
-            document.getElementById('form1').action = "/umbraco/api/signup/createVolunteer";
-            document.getElementById('email').style.display = "none";
-            document.getElementById('address').style.display = "block";
-            document.getElementById('age').style.display = "block";
-            document.getElementById('description').placeHolder = "Description";
-        }
-        else if (document.getElementById('type').value == "type_3") {
-            document.getElementById('form1').action = "/umbraco/api/signup/createSupplier";
-            document.getElementById('email').style.display = "block";
-            document.getElementById('address').style.display = "none";
-            document.getElementById('age').style.display = "none";
-            document.getElementById('description').placeHolder = "Description";
-        }
-        else if (document.getElementById('type').value == "type_4") {
-            document.getElementById('form1').action = "/umbraco/api/signup/createBenefactor";
-            document.getElementById('email').style.display = "block";
-            document.getElementById('address').style.display = "none";
-            document.getElementById('age').style.display = "none";
-            document.getElementById('description').placeHolder = "Description";
-        }
-        else if (document.getElementById('type').value == "type_1") {
-            document.getElementById('form1').action = "/umbraco/api/signup/CreateExtraDoctor";
-            document.getElementById('email').style.display = "none";
-            document.getElementById('address').style.display = "block";
-            document.getElementById('age').style.display = "block";
-            document.getElementById('description').placeHolder = "Medical specialization";
-        }
-        else if (document.getElementById('type').value == "type_0") {
-            document.getElementById('email').style.display = "block";
-            document.getElementById('address').style.display = "block";
-            document.getElementById('age').style.display = "block";
-            document.getElementById('description').placeHolder = "Description";
-        }
-    }
-</script>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section ChildScripts
+{
+    <script src="~/assets/js/signUp.js"></script>
+}
