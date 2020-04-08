@@ -298,6 +298,7 @@
     <Content Include="assets\fonts\fontawesome-webfont.svg" />
     <Content Include="assets\js\jquery.min.js" />
     <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\signUp.js" />
     <Content Include="assets\js\skel.min.js" />
     <Content Include="assets\js\util.js" />
     <Content Include="config\grid.editors.config.js" />
@@ -382,7 +383,6 @@
     <Content Include="Views\Partials\SEO.cshtml" />
     <Content Include="Views\Partials\Navigation.cshtml" />
     <Content Include="Views\Contacts.cshtml" />
-    <Content Include="Views\registrationPage.cshtml" />
     <Content Include="Views\SignUpPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
