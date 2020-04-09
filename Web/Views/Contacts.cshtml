@@ -19,18 +19,17 @@
         <form method="post" name="contactForm" id="contactForm">
             <div class="row uniform 50%">
                 <div class="6u 12u$(xsmall)">
-                    <input type="text" name="name" id="name" value="" placeholder="Ім'я" />
+                    <input type="text" name="contactName" id="name" value="" placeholder="Ім'я" />
                 </div>
                 <div class="6u$ 12u$(xsmall)">
-                    <input type="email" name="email" id="email" value="" placeholder="Email" />
+                    <input type="email" name="contactEmail" id="email" value="" placeholder="Email" />
                 </div>
                 <div class="12u$">
-                    <textarea name="message" id="message" placeholder="Ваше повідомлення" rows="6"></textarea>
+                    <textarea name="contactMessage" id="message" placeholder="Ваше повідомлення" rows="6"></textarea>
                 </div>
                 <div class="12u$">
                     <ul class="actions">
                         <li><input type="submit" value="Надіслати повідомлення" class="special" /></li>
-                        <li><input type="reset" value="Очистити" /></li>
                     </ul>
                 </div>
             </div>
@@ -39,33 +38,46 @@
 </section>
 
 @section ChildScripts {
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
     <script>
-        $("#contactForm").on("submit", function (event) {
-            var contactName = $('#name').val();
-            if (contactName == '') {
-                alert("Поле з ім'ям не може бути порожнім!");
-                return false;
-            }
-            var contactEmail = $('#email').val();
-            if (contactEmail == '') {
-                alert("Поле з Email адресою не може бути порожнім!");
-                return false;
-            }
-            var contactMessage = $('#message').val();
-            if (contactMessage == '') {
-                alert("Поле з повідомленням не може бути порожнім!");
-                return false;
-            }
-            $.post("/umbraco/api/Contact/CreateContactRequest", { "ContactEmail": contactEmail, "ContactMessage": contactMessage, "ContactName": contactName })
-                .done(function () {
+        var requiredFieldMsg = "Це поле обов'язкове";
+        var validEmailMsg = "Будь ласка введіть валідний email";
+        var form$ = $("#contactForm");
+
+        form$.validate({
+            rules: {
+                contactName: "required",
+                contactEmail: {
+                    required: true,
+                    email: true
+                },
+                contactMessage: 'required'
+            },
+            messages: {
+                contactName: {
+                    required: requiredFieldMsg
+                },
+                contactEmail: {
+                    required: requiredFieldMsg,
+                    email: validEmailMsg
+                },
+                contactMessage: {
+                    required: requiredFieldMsg
+                }
+            },
+            submitHandler: function () {
+                $.ajax({
+                    type: "POST",
+                    url: "/umbraco/api/Contact/CreateContactRequest",
+                    data: form$.serialize()
+                }).done(function () {
                     alert("Контактна форма відправлена!");
-                })
-                .fail(function (ex) {
-                    alert("Помилка під час надсилання форми, спробуйте пізніше, або зверніться за контактним телефоном!");
-                    console.log(ex);
+                    form$.trigger('reset');
                 });
-            event.preventDefault();
+            }
         });
+
+
     </script>
 }
 
