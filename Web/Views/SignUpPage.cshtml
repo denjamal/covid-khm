@@ -13,11 +13,11 @@
 <section id="main" class="wrapper">
     <div id="form-main">
         <div id="form-div">
-            <form class="form" action="" method="post" id="form" name="form">
+            <form class="form" id="form" name="form">
 
                 <p>
-                    <select class="category" id="type" onChange="TypeChange()">
-                        <option value="type_0">--Ким ви бажаєте стати--</option>
+                    <select class="category" name="category" id="type" onChange="formTypeChanged()">
+                        <option value="">--Ким ви бажаєте стати--</option>
                         <option value="type_1">Лікар резерву</option>
                         <option value="type_2">Волонтер</option>
                         <option value="type_3">Постачальник</option>
@@ -26,30 +26,30 @@
                 </p>
 
                 <p id="name">
-                    <input name="PersonName" type="text" class="feedback-input" placeholder="Прізвище Ім'я Побатькові" />
+                    <input name="personName" type="text" class="feedback-input" placeholder="Прізвище Ім'я Побатькові" />
                 </p>
 
                 <p id="phone">
-                    <input name="Phone" type="text" class="feedback-input" placeholder="Номер телефону" />
+                    <input name="phone" type="text" class="feedback-input" placeholder="Номер телефону" />
                 </p>
 
                 <p id="email">
-                    <input name="Email" type="text" class="feedback-input" placeholder="Ваш Email" />
+                    <input name="email" type="text" class="feedback-input" placeholder="Ваш Email" />
                 </p>
 
                 <p id="age">
-                    <input name="Age" type="text" class="feedback-input" placeholder="Ваш вік" />
+                    <input name="age" type="text" class="feedback-input" placeholder="Ваш вік" />
                 </p>
 
                 <p id="address">
-                    <input name="HomeAddress" type="text" class="feedback-input" placeholder="Домашня адреса" />
+                    <input name="homeAddress" type="text" class="feedback-input" placeholder="Домашня адреса" />
                 </p>
 
                 <p id="description">
                     <textarea id="description" name="Description" class="feedback-input" placeholder="Чим ви готові займатись"></textarea>
                 </p>
 
-                <button class="form-button" data-toggle="modal" data-target="#exampleModal"><span class="text-button">Відправити заявку</span></button>
+                <button class="form-button"><span class="text-button">Відправити заявку</span></button>
 
             </form>
         </div>
@@ -58,5 +58,6 @@
 
 @section ChildScripts
 {
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
     <script src="~/assets/js/signUp.js"></script>
 }
